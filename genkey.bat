@@ -1,0 +1,1 @@
+keytool -genkey -alias peter-swing -keystore peter-swing.key

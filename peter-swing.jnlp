@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<jnlp spec="1.0+" codebase="http://kingofcoders.com/" href="peter-swing.jnlp">
+	<information>
+		<title>peter-swing</title>
+		<vendor>Peter</vendor>
+		<homepage href="http://code.google.com/p/peter-swing/" />
+		<description>peter-swing demo</description>
+	</information>
+	<security>
+		<all-permissions/>
+	</security>
+	<resources>
+		<j2se version="1.6+" />
+		<jar href="http://www.kingofcoders.com/peter-swing.jar?version=20120421" />
+	</resources>
+	<application-desc main-class="com.peterswing.Application" />
+</jnlp>

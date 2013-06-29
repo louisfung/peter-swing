@@ -1,0 +1,3 @@
+install peter-swing.jar to local maven repository:
+	mvn install:install-file -Dfile=peter-swing.jar -DgroupId=com.peter -DartifactId=peter-swing -Dversion=2013 -Dpackaging=jar
+
