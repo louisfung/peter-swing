@@ -2,7 +2,6 @@ package com.peterswing.advancedswing.jprogressbardialog;
 
 import java.awt.BorderLayout;
 import java.awt.Dialog;
-import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.GraphicsConfiguration;
@@ -19,17 +18,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.LayoutStyle;
-import javax.swing.SwingWorker;
+import javax.swing.SwingUtilities;
 import javax.swing.event.EventListenerList;
 
 import com.peterswing.CommonLib;
 
-/**
- * This code was edited or generated using CloudGarden's Jigloo SWT/Swing GUI Builder, which is free for non-commercial use. If Jigloo is being used commercially (ie, by a
- * corporation, company or business for any purpose whatever) then you should purchase a license for each developer using Jigloo. Please visit www.cloudgarden.com for details. Use
- * of Jigloo implies acceptance of these licensing terms. A COMMERCIAL LICENSE HAS NOT BEEN PURCHASED FOR THIS MACHINE, SO JIGLOO OR THIS CODE CANNOT BE USED LEGALLY FOR ANY
- * CORPORATE OR COMMERCIAL PURPOSE.
- */
 public class JProgressBarDialog extends javax.swing.JDialog {
 	public JPanel jMainPanel;
 	public JProgressBar jProgressBar;
@@ -167,7 +160,7 @@ public class JProgressBarDialog extends javax.swing.JDialog {
 
 	public void setVisible(boolean b) {
 		try {
-			if (thread != null) {
+			if (thread != null && b) {
 				thread.start();
 
 				new Thread() {
@@ -193,7 +186,11 @@ public class JProgressBarDialog extends javax.swing.JDialog {
 	}
 
 	private void finished() {
-		super.setVisible(false);
+		SwingUtilities.invokeLater(new Thread() {
+			public void run() {
+				JProgressBarDialog.this.setVisible(false);
+			}
+		});
 	}
 
 	private void jCancelButtonActionPerformed(ActionEvent evt) {
@@ -210,7 +207,7 @@ public class JProgressBarDialog extends javax.swing.JDialog {
 	public void addCancelEventListener(JProgressBarDialogEventListener listener) {
 		listenerList.add(JProgressBarDialogEventListener.class, listener);
 	}
-	
+
 	private void thisWindowClosing(WindowEvent evt) {
 		jCancelButtonActionPerformed(null);
 	}
