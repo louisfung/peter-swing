@@ -735,9 +735,9 @@ public class FileChooserUI extends MyBasicFileChooserUI {
 		JPanel p = new JPanel(new BorderLayout());
 
 		DetailsTableModel detailsTableModel = new DetailsTableModel(chooser);
-		SortableTableModel sortableTableModel = new SortableTableModel(detailsTableModel);
+//		SortableTableModel sortableTableModel = new SortableTableModel(detailsTableModel);
 
-		detailsTable = new JTable(sortableTableModel) {
+		detailsTable = new JTable(detailsTableModel) {
 			// Handle Escape key events here
 			protected boolean processKeyBinding(KeyStroke ks, KeyEvent e, int condition, boolean pressed) {
 				if ((e.getKeyCode() == KeyEvent.VK_ESCAPE) && (getCellEditor() == null)) {
@@ -750,8 +750,8 @@ public class FileChooserUI extends MyBasicFileChooserUI {
 				return super.processKeyBinding(ks, e, condition, pressed);
 			}
 		};
-		TableSorterColumnListener tableSorterColumnListener = new TableSorterColumnListener(detailsTable, sortableTableModel);
-		detailsTable.getTableHeader().addMouseListener(tableSorterColumnListener);
+//		TableSorterColumnListener tableSorterColumnListener = new TableSorterColumnListener(detailsTable, sortableTableModel);
+//		detailsTable.getTableHeader().addMouseListener(tableSorterColumnListener);
 		detailsTable.addKeyListener(new TableSelectByKeyAdaptor(detailsTable, true));
 		detailsTable.setComponentOrientation(chooser.getComponentOrientation());
 		detailsTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
