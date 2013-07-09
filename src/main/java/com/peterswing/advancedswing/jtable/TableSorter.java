@@ -68,7 +68,7 @@ public class TableSorter {
 				} else if (file1.isFile() && file2.isDirectory()) {
 					return 1;
 				} else {
-					return file1.compareTo(file2);
+					return file1.getName().toLowerCase().compareTo(file2.getName().toLowerCase());
 				}
 			} else {
 				return ((String) o1).compareTo((String) o2);
