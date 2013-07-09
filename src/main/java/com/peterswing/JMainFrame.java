@@ -290,6 +290,7 @@ public class JMainFrame extends JFrame {
 	JLabel JLabel3 = new JLabel();
 
 	public static void main(String args[]) {
+		System.out.println(Global.version);
 		try {
 			UIManager.setLookAndFeel("com.peterswing.white.PeterSwingWhiteLookAndFeel");
 		} catch (Exception e) {
