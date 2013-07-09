@@ -32,7 +32,7 @@ public class TableSorterColumnListener extends MouseAdapter {
 			sortableTableModel.sortByColumn(columnModelIndex, isSortAsc);
 			sortableTableModel.fireTableDataChanged();
 		} catch (Exception ex) {
-
+			ex.printStackTrace();
 		}
 	}
 

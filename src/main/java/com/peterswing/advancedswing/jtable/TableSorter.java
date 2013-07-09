@@ -1,5 +1,6 @@
 package com.peterswing.advancedswing.jtable;
 
+import java.io.File;
 import java.util.Date;
 
 import com.peterswing.CommonLib;
@@ -40,6 +41,7 @@ public class TableSorter {
 	public int compare(int column, int row1, int row2) {
 		Object o1 = model.getValueAt(row1, column);
 		Object o2 = model.getValueAt(row2, column);
+
 		if (o1 == null && o2 == null) {
 			return 0;
 		} else if (o1 == null) {
@@ -58,6 +60,16 @@ public class TableSorter {
 				return compare((Boolean) o1, (Boolean) o2);
 			} else if (type == ComputerUnit.class) {
 				return compare(CommonLib.convertFilesize((String) o1), CommonLib.convertFilesize((String) o2));
+			} else if (type == File.class) {
+				File file1 = (File) o1;
+				File file2 = (File) o2;
+				if (file1.isDirectory() && file2.isFile()) {
+					return -1;
+				} else if (file1.isFile() && file2.isDirectory()) {
+					return 1;
+				} else {
+					return file1.compareTo(file2);
+				}
 			} else {
 				return ((String) o1).compareTo((String) o2);
 			}

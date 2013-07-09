@@ -1,13 +1,14 @@
 package com.peterswing.advancedswing.jtable;
 
+import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 
 public class SortableTableModel extends DefaultTableModel {
 	int[] indexes;
 	TableSorter sorter;
-	public DefaultTableModel model;
+	public AbstractTableModel model;
 
-	public SortableTableModel(DefaultTableModel model) {
+	public SortableTableModel(AbstractTableModel model) {
 		this.model = model;
 	}
 

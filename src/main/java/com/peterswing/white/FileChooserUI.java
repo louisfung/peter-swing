@@ -29,7 +29,7 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
 import java.io.IOException;
-import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Enumeration;
@@ -88,10 +88,13 @@ import javax.swing.text.Position;
 import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreePath;
 
-import com.peterswing.advancedswing.searchtextfield.JSearchTextField;
 import com.peterswing.CommonLib;
 import com.peterswing.FilterBasicDirectoryModel;
 import com.peterswing.TableSelectByKeyAdaptor;
+import com.peterswing.advancedswing.jtable.ComputerUnit;
+import com.peterswing.advancedswing.jtable.SortableTableModel;
+import com.peterswing.advancedswing.jtable.TableSorterColumnListener;
+import com.peterswing.advancedswing.searchtextfield.JSearchTextField;
 
 public class FileChooserUI extends MyBasicFileChooserUI {
 	private static final Dimension hstrut5 = new Dimension(5, 1);
@@ -111,8 +114,8 @@ public class FileChooserUI extends MyBasicFileChooserUI {
 	private static Dimension LIST_PREF_SIZE = new Dimension(LIST_PREF_WIDTH, LIST_PREF_HEIGHT);
 	private static final int COLUMN_FILENAME = 0;
 	private static final int COLUMN_FILESIZE = 1;
-	private static final int COLUMN_FILETYPE = 2;
-	private static final int COLUMN_FILEDATE = 3;
+	private static final int COLUMN_FILEDATE = 2;
+	private static final int COLUMN_FILETYPE = 3;
 	private static final int COLUMN_FILEATTR = 4;
 	private static final int COLUMN_COLCOUNT = 5;
 	final static int space = 10;
@@ -149,7 +152,7 @@ public class FileChooserUI extends MyBasicFileChooserUI {
 	private JPanel buttonPanel;
 	private JPanel bottomPanel;
 	private JComboBox filterComboBox;
-	private int[] COLUMN_WIDTHS = { 150, 75, 130, 130, 40 };
+	private int[] COLUMN_WIDTHS = { 150, 75,180, 130, 40 };
 
 	// Labels, mnemonics, and tooltips (oh my!)
 	private String saveInLabelText = null;
@@ -732,8 +735,9 @@ public class FileChooserUI extends MyBasicFileChooserUI {
 		JPanel p = new JPanel(new BorderLayout());
 
 		DetailsTableModel detailsTableModel = new DetailsTableModel(chooser);
+		SortableTableModel sortableTableModel = new SortableTableModel(detailsTableModel);
 
-		detailsTable = new JTable(detailsTableModel) {
+		detailsTable = new JTable(sortableTableModel) {
 			// Handle Escape key events here
 			protected boolean processKeyBinding(KeyStroke ks, KeyEvent e, int condition, boolean pressed) {
 				if ((e.getKeyCode() == KeyEvent.VK_ESCAPE) && (getCellEditor() == null)) {
@@ -746,11 +750,14 @@ public class FileChooserUI extends MyBasicFileChooserUI {
 				return super.processKeyBinding(ks, e, condition, pressed);
 			}
 		};
+		TableSorterColumnListener tableSorterColumnListener = new TableSorterColumnListener(detailsTable, sortableTableModel);
+		detailsTable.getTableHeader().addMouseListener(tableSorterColumnListener);
 		detailsTable.addKeyListener(new TableSelectByKeyAdaptor(detailsTable, true));
 		detailsTable.setComponentOrientation(chooser.getComponentOrientation());
 		detailsTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		detailsTable.setSelectionModel(listSelectionModel);
 		detailsTable.putClientProperty("JTable.autoStartsEdit", Boolean.FALSE);
+		detailsTable.getTableHeader().setReorderingAllowed(false);
 
 		Font font = detailsTable.getFont();
 		detailsTable.setRowHeight(Math.max(font.getSize(), 19) + 3);
@@ -1656,10 +1663,10 @@ public class FileChooserUI extends MyBasicFileChooserUI {
 			switch (column) {
 			case COLUMN_FILENAME:
 				return File.class;
-
 			case COLUMN_FILEDATE:
 				return Date.class;
-
+			case COLUMN_FILESIZE:
+				return ComputerUnit.class;
 			default:
 				return super.getColumnClass(column);
 			}
@@ -1677,9 +1684,7 @@ public class FileChooserUI extends MyBasicFileChooserUI {
 			switch (col) {
 			case COLUMN_FILENAME:
 				return f;
-
 			case COLUMN_FILESIZE:
-
 				if (!f.exists() || f.isDirectory()) {
 					return null;
 				}
@@ -1699,27 +1704,19 @@ public class FileChooserUI extends MyBasicFileChooserUI {
 						return len + " GB";
 					}
 				}
-
 			case COLUMN_FILETYPE:
-
 				if (!f.exists()) {
 					return null;
 				}
-
 				return chooser.getFileSystemView().getSystemTypeDescription(f);
-
 			case COLUMN_FILEDATE:
-
 				if (!f.exists() || chooser.getFileSystemView().isFileSystemRoot(f)) {
 					return null;
 				}
 
 				long time = f.lastModified();
-
 				return (time == 0L) ? null : new Date(time);
-
 			case COLUMN_FILEATTR:
-
 				if (!f.exists() || chooser.getFileSystemView().isFileSystemRoot(f)) {
 					return null;
 				}
@@ -1805,11 +1802,11 @@ public class FileChooserUI extends MyBasicFileChooserUI {
 
 	class DetailsTableCellRenderer extends DefaultTableCellRenderer {
 		JFileChooser chooser;
-		DateFormat df;
+		SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 
 		DetailsTableCellRenderer(JFileChooser chooser) {
 			this.chooser = chooser;
-			df = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT, chooser.getLocale());
+			//			df = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT, chooser.getLocale());
 		}
 
 		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
