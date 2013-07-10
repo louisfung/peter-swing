@@ -19,6 +19,7 @@ import java.io.InputStreamReader;
 import java.io.RandomAccessFile;
 import java.lang.reflect.Array;
 import java.math.BigInteger;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Arrays;
@@ -938,5 +939,28 @@ public class CommonLib {
 			b[x] = (int) ((value >> (x * 8)) & 0xff);
 		}
 		return b;
+	}
+
+	public static int getFileSize(String url) {
+		try {
+			return getFileSize(new URL(url));
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return -1;
+	}
+
+	public static int getFileSize(URL url) {
+		HttpURLConnection conn = null;
+		try {
+			conn = (HttpURLConnection) url.openConnection();
+			conn.setRequestMethod("HEAD");
+			conn.getInputStream();
+			return conn.getContentLength();
+		} catch (IOException e) {
+			return -1;
+		} finally {
+			conn.disconnect();
+		}
 	}
 }
