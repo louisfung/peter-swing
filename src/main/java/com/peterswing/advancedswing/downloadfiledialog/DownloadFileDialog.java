@@ -5,6 +5,8 @@ import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.net.URL;
 
@@ -23,10 +25,12 @@ public class DownloadFileDialog extends JDialog implements Runnable {
 	public String url;
 	public boolean stop;
 	private JProgressBar progressBar;
+	File dest;
 
-	public DownloadFileDialog(Frame frame, String title, boolean modal, String url) {
+	public DownloadFileDialog(Frame frame, String title, boolean modal, String url, File dest) {
 		super(frame, title, modal);
 		this.url = url;
+		this.dest = dest;
 		setBounds(100, 100, 371, 110);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -74,12 +78,16 @@ public class DownloadFileDialog extends JDialog implements Runnable {
 		}
 		progressBar.setMaximum(size);
 		InputStream in = null;
+		FileOutputStream fo = null;
+
 		try {
+			fo = new FileOutputStream(dest);
 			in = new URL(url).openStream();
 			byte b[] = new byte[1024];
 			int len;
 			while ((len = in.read(b)) != -1) {
 				progressBar.setValue(progressBar.getValue() + len);
+				fo.write(b);
 			}
 			System.out.println(IOUtils.toString(in));
 		} catch (Exception ex) {
@@ -87,6 +95,9 @@ public class DownloadFileDialog extends JDialog implements Runnable {
 		} finally {
 			if (in != null) {
 				IOUtils.closeQuietly(in);
+			}
+			if (fo != null) {
+				IOUtils.closeQuietly(fo);
 			}
 		}
 		setVisible(false);
