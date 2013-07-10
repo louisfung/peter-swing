@@ -67,7 +67,12 @@ public class DownloadFileDialog extends JDialog implements Runnable {
 	public void run() {
 		progressBar.setStringPainted(true);
 		progressBar.setValue(0);
-		progressBar.setMaximum(CommonLib.getFileSize(url));
+		int size = CommonLib.getFileSize(url);
+		if (size == -1) {
+			setVisible(false);
+			return;
+		}
+		progressBar.setMaximum(size);
 		InputStream in = null;
 		try {
 			in = new URL(url).openStream();
@@ -84,6 +89,7 @@ public class DownloadFileDialog extends JDialog implements Runnable {
 				IOUtils.closeQuietly(in);
 			}
 		}
+		setVisible(false);
 	}
 
 }
