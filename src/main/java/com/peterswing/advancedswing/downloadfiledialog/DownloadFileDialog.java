@@ -31,7 +31,7 @@ public class DownloadFileDialog extends JDialog implements Runnable {
 		super(frame, title, modal);
 		this.url = url;
 		this.dest = dest;
-		setBounds(100, 100, 371, 110);
+		setBounds(100, 100, 371, 90);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
