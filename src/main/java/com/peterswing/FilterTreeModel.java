@@ -21,10 +21,8 @@ public class FilterTreeModel extends DefaultTreeModel {
 	}
 
 	public void reload() {
-		//		System.out.println("reload start");
 		Object root = getRoot();
 		walk(root, 0);
-		//		System.out.println("reload end");
 		nodeStructureChanged((TreeNode) root);
 	}
 
@@ -33,7 +31,7 @@ public class FilterTreeModel extends DefaultTreeModel {
 		cc = delegate.getChildCount(o);
 		for (int i = 0; i < cc; i++) {
 			Object child = delegate.getChild(o, i);
-			if (child instanceof FilterTreeNode) {
+			if (child instanceof FilterTreeNode && filter != null) {
 				FilterTreeNode fn = (FilterTreeNode) child;
 				if (exactMatch && child.toString().toLowerCase().equals(filter)) {
 					setAllParentVisible(fn, true);
@@ -62,10 +60,16 @@ public class FilterTreeModel extends DefaultTreeModel {
 		int count = 0;
 		for (int i = 0; i < delegate.getChildCount(parent); i++) {
 			final Object child = delegate.getChild(parent, i);
-			if (child instanceof FilterTreeNode && ((FilterTreeNode) child).isShown) {
-				if (count == index) {
-					return child;
+			if (child instanceof FilterTreeNode) {
+				if (((FilterTreeNode) child).isShown) {
+					if (count == index) {
+						return child;
+					}
+					count++;
 				}
+			} else if (count == index) {
+				return child;
+			} else {
 				count++;
 			}
 		}
@@ -80,7 +84,11 @@ public class FilterTreeModel extends DefaultTreeModel {
 		int count = 0;
 		for (int i = 0; i < delegate.getChildCount(parent); i++) {
 			final Object child = delegate.getChild(parent, i);
-			if (child instanceof FilterTreeNode && ((FilterTreeNode) child).isShown) {
+			if (child instanceof FilterTreeNode) {
+				if (((FilterTreeNode) child).isShown) {
+					count++;
+				}
+			} else {
 				count++;
 			}
 		}
