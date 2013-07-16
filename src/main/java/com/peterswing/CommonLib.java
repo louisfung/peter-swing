@@ -961,4 +961,17 @@ public class CommonLib {
 			return -1;
 		}
 	}
+
+	public static String splitString(String str, String delim, int size) {
+		String ori = str;
+		String s = "";
+		for (int x = 0; x < ori.length(); x += size) {
+			if (x + size < ori.length()) {
+				s += ori.substring(x, x + size) + delim;
+			} else {
+				s += ori.substring(x, ori.length()) + delim;
+			}
+		}
+		return s;
+	}
 }

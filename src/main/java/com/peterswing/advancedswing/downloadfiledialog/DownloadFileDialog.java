@@ -89,7 +89,6 @@ public class DownloadFileDialog extends JDialog implements Runnable {
 				progressBar.setValue(progressBar.getValue() + len);
 				fo.write(b);
 			}
-			System.out.println(IOUtils.toString(in));
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		} finally {
