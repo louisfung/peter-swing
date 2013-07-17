@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.peter</groupId>
 	<artifactId>peter-swing</artifactId>
-	<version>20130709</version>
+	<version>20130717</version>
 	<description>Peter's swing look and feel and components</description>
 	<build>
 		<plugins>
