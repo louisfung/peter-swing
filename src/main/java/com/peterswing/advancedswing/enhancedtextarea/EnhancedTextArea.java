@@ -105,7 +105,7 @@ public class EnhancedTextArea extends JPanel implements LogFileTailerListener, D
 					jSaveButton = new JButton();
 					jToolBar.add(jSaveButton);
 					jSaveButton.setText("Save");
-					jSaveButton.setIcon(new ImageIcon(getClass().getClassLoader().getResource("com/peterswing/advancedswing/JTextArea/disk.png")));
+					jSaveButton.setIcon(new ImageIcon(getClass().getClassLoader().getResource("com/peterswing/advancedswing/enhancedtextarea/disk.png")));
 					jSaveButton.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent evt) {
 							jSaveButtonActionPerformed(evt);
@@ -126,7 +126,7 @@ public class EnhancedTextArea extends JPanel implements LogFileTailerListener, D
 					jLineWrapButton = new JToggleButton();
 					jToolBar.add(jLineWrapButton);
 					jLineWrapButton.setText("Wrap");
-					jLineWrapButton.setIcon(new ImageIcon(getClass().getClassLoader().getResource("com/peterswing/advancedswing/JTextArea/linewrap.png")));
+					jLineWrapButton.setIcon(new ImageIcon(getClass().getClassLoader().getResource("com/peterswing/advancedswing/enhancedtextarea/linewrap.png")));
 					jLineWrapButton.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent evt) {
 							jLineWrapButtonActionPerformed(evt);
@@ -136,7 +136,7 @@ public class EnhancedTextArea extends JPanel implements LogFileTailerListener, D
 				{
 					jFontBiggerButton = new JButton();
 					jToolBar.add(jFontBiggerButton);
-					jFontBiggerButton.setIcon(new ImageIcon(getClass().getClassLoader().getResource("com/peterswing/advancedswing/JTextArea/font_add.png")));
+					jFontBiggerButton.setIcon(new ImageIcon(getClass().getClassLoader().getResource("com/peterswing/advancedswing/enhancedtextarea/font_add.png")));
 					jFontBiggerButton.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent evt) {
 							jFontBiggerButtonActionPerformed(evt);
@@ -146,7 +146,7 @@ public class EnhancedTextArea extends JPanel implements LogFileTailerListener, D
 				{
 					jFontSmallerButton = new JButton();
 					jToolBar.add(jFontSmallerButton);
-					jFontSmallerButton.setIcon(new ImageIcon(getClass().getClassLoader().getResource("com/peterswing/advancedswing/JTextArea/font_delete.png")));
+					jFontSmallerButton.setIcon(new ImageIcon(getClass().getClassLoader().getResource("com/peterswing/advancedswing/enhancedtextarea/font_delete.png")));
 					jFontSmallerButton.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent evt) {
 							jFontSmallerButtonActionPerformed(evt);
