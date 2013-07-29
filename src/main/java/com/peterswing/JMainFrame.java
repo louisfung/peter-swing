@@ -94,7 +94,7 @@ public class JMainFrame extends JFrame {
 	JTabbedPane jTabbedPane1 = new JTabbedPane();
 	ButtonGroup buttonGroup1 = new ButtonGroup();
 	JPanel JTextAreaPanel = new JPanel();
-	JTextArea JTextArea1 = new JTextArea();
+	EnhancedTextArea JTextArea1 = new EnhancedTextArea();
 	JPanel pTogglePanel = new JPanel();
 	JToggleButton JToggleButton1 = new JToggleButton();
 	JPanel pAboutPanel = new JPanel();
@@ -156,7 +156,7 @@ public class JMainFrame extends JFrame {
 	private JButton jButton20;
 	private OnOffButton onOffButton1;
 	private JPanel jOnOffButtonPanel;
-	private EnhancedTextArea enhancedTextArea1;
+	private JTextArea enhancedTextArea1;
 	private JPanel jPanel25;
 	private JScrollPane jScrollPane2;
 	private JTree jTree2;
@@ -572,14 +572,14 @@ public class JMainFrame extends JFrame {
 			jPanel25 = new JPanel();
 			GroupLayout jPanel25Layout = new GroupLayout((JComponent) jPanel25);
 			jPanel25.setLayout(jPanel25Layout);
-			jTabbedPane1.addTab("EnhancedTextArea", null, jPanel25, null);
+			jTabbedPane1.addTab("JTextArea", null, jPanel25, null);
 			{
-				enhancedTextArea1 = new EnhancedTextArea();
+				enhancedTextArea1 = new JTextArea();
 			}
-			// enhancedTextArea1.setText(CommonLib.getWebpage("www.google.com"));
+			// JTextArea1.setText(CommonLib.getWebpage("www.google.com"));
 			jPanel25Layout.setHorizontalGroup(jPanel25Layout.createSequentialGroup().addContainerGap(81, 81)
-					.addComponent(enhancedTextArea1, GroupLayout.PREFERRED_SIZE, 532, GroupLayout.PREFERRED_SIZE).addContainerGap(72, Short.MAX_VALUE));
-			jPanel25Layout.setVerticalGroup(jPanel25Layout.createSequentialGroup().addContainerGap(44, 44).addComponent(enhancedTextArea1, 0, 290, Short.MAX_VALUE)
+					.addComponent(JTextArea1, GroupLayout.PREFERRED_SIZE, 532, GroupLayout.PREFERRED_SIZE).addContainerGap(72, Short.MAX_VALUE));
+			jPanel25Layout.setVerticalGroup(jPanel25Layout.createSequentialGroup().addContainerGap(44, 44).addComponent(JTextArea1, 0, 290, Short.MAX_VALUE)
 					.addContainerGap());
 		}
 		{
