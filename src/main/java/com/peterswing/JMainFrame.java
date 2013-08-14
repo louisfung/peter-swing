@@ -579,8 +579,7 @@ public class JMainFrame extends JFrame {
 			// JTextArea1.setText(CommonLib.getWebpage("www.google.com"));
 			jPanel25Layout.setHorizontalGroup(jPanel25Layout.createSequentialGroup().addContainerGap(81, 81)
 					.addComponent(JTextArea1, GroupLayout.PREFERRED_SIZE, 532, GroupLayout.PREFERRED_SIZE).addContainerGap(72, Short.MAX_VALUE));
-			jPanel25Layout.setVerticalGroup(jPanel25Layout.createSequentialGroup().addContainerGap(44, 44).addComponent(JTextArea1, 0, 290, Short.MAX_VALUE)
-					.addContainerGap());
+			jPanel25Layout.setVerticalGroup(jPanel25Layout.createSequentialGroup().addContainerGap(44, 44).addComponent(JTextArea1, 0, 290, Short.MAX_VALUE).addContainerGap());
 		}
 		{
 			jPanel24 = new JPanel();
@@ -773,7 +772,7 @@ public class JMainFrame extends JFrame {
 							}
 							{
 								jLabel6 = new JLabel();
-								jMaximizableTabbedPane2.addTab("jLabel6", null, jLabel6, null);
+								jMaximizableTabbedPane2.addTabWithCloseButton("jLabel6", null, jLabel6, null);
 								jLabel6.setText("6");
 							}
 						}
@@ -1460,6 +1459,7 @@ public class JMainFrame extends JFrame {
 		pVersionLabel.setText("version : " + Global.version);
 		pack();
 		this.setSize(700, 500);
+		this.setLocationRelativeTo(null);
 	}
 
 	// Overridden so we can exit when window is closed

@@ -19,6 +19,7 @@ public class JMaximizableTabbedPaneUI extends TabbedPaneUI {
 	protected JMaximizableTabbedPane jMaximizableTabbedPane;
 
 	public static ComponentUI createUI(JComponent c) {
+		System.out.println("createUI");
 		return new JMaximizableTabbedPaneUI();
 	}
 
@@ -37,6 +38,7 @@ public class JMaximizableTabbedPaneUI extends TabbedPaneUI {
 
 	protected void paintIcon(Graphics g, int tabPlacement, int tabIndex, Icon icon, Rectangle iconRect, boolean isSelected) {
 		super.paintIcon(g, tabPlacement, tabIndex, icon, iconRect, isSelected);
+
 		if (jMaximizableTabbedPane.getClosableTabIndex().contains(tabIndex)) {
 			closeIcon.paintIcon(tabPane, g, tabX + tabWidth - 18, this.tabY + ((tabHeight - closeIcon.getIconHeight()) / 2));
 		}

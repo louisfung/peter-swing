@@ -26,7 +26,7 @@ import com.peterswing.white.CheckBoxUI;
 
 public class JClosableTabbedPane extends JTabbedPane implements MouseListener {
 	private double scaleRatio = 0.7;
-	ImageIcon closeIcon = new ImageIcon(CheckBoxUI.class.getResource("images/JClosableTabbedPane/closeIcon.gif"));
+	ImageIcon closeIcon = new ImageIcon(CheckBoxUI.class.getResource("/com/peterswing/white/images/JClosableTabbedPane/closeIcon.gif"));
 
 	private HashMap<String, Component> maps = new HashMap<String, Component>();
 

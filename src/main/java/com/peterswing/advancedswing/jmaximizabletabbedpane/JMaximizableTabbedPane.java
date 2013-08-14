@@ -74,6 +74,7 @@ public class JMaximizableTabbedPane extends JTabbedPane implements MouseListener
 	}
 
 	private void init(boolean isMaximized) {
+		setUI(new JMaximizableTabbedPaneUI());
 		this.isMaximized = isMaximized;
 		addMouseListener(this);
 		addMouseMotionListener(this);
