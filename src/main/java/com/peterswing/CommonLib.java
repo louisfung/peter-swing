@@ -71,25 +71,6 @@ public class CommonLib {
 		}
 	}
 
-	public static BigInteger string2decimal(String s) {
-		try {
-			if (s == null) {
-				return BigInteger.valueOf(0);
-			} else {
-				s = s.trim().toLowerCase();
-				if (s.startsWith("0x")) {
-					return new BigInteger(s.substring(2), 16);
-				} else if (s.matches(".*[abcdef].*")) {
-					return new BigInteger(s, 16);
-				} else {
-					return new BigInteger(s, 10);
-				}
-			}
-		} catch (Exception ex) {
-			return null;
-		}
-	}
-
 	public static long string2long(String s) {
 		if (s == null) {
 			return 0L;
@@ -137,7 +118,7 @@ public class CommonLib {
 
 	public static boolean isNumber(String s) {
 		try {
-			BigInteger l = string2decimal(s);
+			BigInteger l = string2BigInteger(s);
 			return true;
 		} catch (Exception ex) {
 			return false;
