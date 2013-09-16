@@ -869,6 +869,10 @@ public class CommonLib {
 		return value >> bitNo & 1;
 	}
 
+	public static long getBit(BigInteger value, int bitNo) {
+		return value.testBit(bitNo) ? 1 : 0;
+	}
+
 	public static long getValue(long l, int startBit, int endBit) {
 		if (startBit > endBit) {
 			int temp = startBit;
