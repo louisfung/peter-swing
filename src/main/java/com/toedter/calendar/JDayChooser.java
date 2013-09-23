@@ -1,23 +1,3 @@
-/*
- *  JDayChooser.java  - A bean for choosing a day
- *  Copyright (C) 2004 Kai Toedter
- *  kai@toedter.com
- *  www.toedter.com
- *
- *  This program is free software; you can redistribute it and/or
- *  modify it under the terms of the GNU Lesser General Public License
- *  as published by the Free Software Foundation; either version 2
- *  of the License, or (at your option) any later version.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU Lesser General Public License for more details.
- *
- *  You should have received a copy of the GNU Lesser General Public License
- *  along with this program; if not, write to the Free Software
- *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
- */
 package com.toedter.calendar;
 
 import java.awt.BorderLayout;
@@ -46,77 +26,37 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 
-/**
- * JDayChooser is a bean for choosing a day.
- * 
- * @author Kai Toedter
- * @version $LastChangedRevision: 147 $
- * @version $LastChangedDate: 2011-06-06 20:36:53 +0200 (Mo, 06 Jun 2011) $
- */
 public class JDayChooser extends JPanel implements ActionListener, KeyListener, FocusListener {
 	private static final long serialVersionUID = 5876398337018781820L;
-
 	protected JButton[] days;
-
 	protected JButton[] weeks;
-
 	protected JButton selectedDay;
-
 	protected JPanel weekPanel;
-
 	protected JPanel dayPanel;
-
 	protected int day;
-
 	protected Color oldDayBackgroundColor;
-
 	protected Color selectedColor;
-
 	protected Color sundayForeground;
-
 	protected Color weekdayForeground;
-
 	protected Color decorationBackgroundColor;
-
 	protected String[] dayNames;
-
 	protected Calendar calendar;
-
 	protected Calendar today;
-
 	protected Locale locale;
-
 	protected boolean initialized;
-
 	protected boolean weekOfYearVisible;
-
 	protected boolean decorationBackgroundVisible = true;
-
 	protected boolean decorationBordersVisible;
-
 	protected boolean dayBordersVisible;
-
 	private boolean alwaysFireDayProperty;
-
 	protected int maxDayCharacters;
-
 	protected List dateEvaluators;
-
 	protected MinMaxDateEvaluator minMaxDateEvaluator;
 
-	/**
-	 * Default JDayChooser constructor.
-	 */
 	public JDayChooser() {
 		this(false);
 	}
 
-	/**
-	 * JDayChooser constructor.
-	 * 
-	 * @param weekOfYearVisible
-	 *            true, if the weeks of a year shall be shown
-	 */
 	public JDayChooser(boolean weekOfYearVisible) {
 		setName("JDayChooser");
 		setBackground(Color.blue);

@@ -1,24 +1,3 @@
-/*
- *  DateChooserPanel.java  - A panel to demo several JDateChooser configurations.
- *  Copyright (C) 2006 Kai Toedter
- *  kai@toedter.com
- *  www.toedter.com
- *
- *  This program is free software; you can redistribute it and/or
- *  modify it under the terms of the GNU Lesser General Public License
- *  as published by the Free Software Foundation; either version 2
- *  of the License, or (at your option) any later version.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU Lesser General Public License for more details.
- *
- *  You should have received a copy of the GNU Lesser General Public License
- *  along with this program; if not, write to the Free Software
- *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
- */
-
 package com.toedter.calendar.demo;
 
 import java.awt.Dimension;
@@ -36,13 +15,6 @@ import javax.swing.JPanel;
 import com.toedter.calendar.JDateChooser;
 import com.toedter.calendar.JSpinnerDateEditor;
 
-/**
- * A demonstration panel including several JDateChoosers.
- * 
- * @author Kai Toedter
- * @version $LastChangedRevision: 153 $
- * @version $LastChangedDate: 2011-06-09 16:49:22 +0200 (Do, 09 Jun 2011) $
- */
 public class DateChooserPanel extends JPanel implements PropertyChangeListener {
 	private static final long serialVersionUID = -1282280858252793253L;
 	private final JComponent[] components;
@@ -59,18 +31,13 @@ public class DateChooserPanel extends JPanel implements PropertyChangeListener {
 		components = new JComponent[6];
 		components[0] = new JDateChooser();
 		components[1] = new JDateChooser();
-		((JDateChooser) components[1]).getJCalendar().getDayChooser()
-				.addDateEvaluator(new BirthdayEvaluator());
-		((JDateChooser) components[1]).getJCalendar().getDayChooser()
-				.addDateEvaluator(new TestDateEvaluator());
-		((JDateChooser) components[1]).getJCalendar().setTodayButtonVisible(
-				true);
-		((JDateChooser) components[1]).getJCalendar().setNullDateButtonVisible(
-				true);
+		((JDateChooser) components[1]).getJCalendar().getDayChooser().addDateEvaluator(new BirthdayEvaluator());
+		((JDateChooser) components[1]).getJCalendar().getDayChooser().addDateEvaluator(new TestDateEvaluator());
+		((JDateChooser) components[1]).getJCalendar().setTodayButtonVisible(true);
+		((JDateChooser) components[1]).getJCalendar().setNullDateButtonVisible(true);
 
 		components[2] = new JDateChooser(new Date());
-		components[3] = new JDateChooser(null, null, null,
-				new JSpinnerDateEditor());
+		components[3] = new JDateChooser(null, null, null, new JSpinnerDateEditor());
 		components[4] = new JDateChooser("yyyy/MM/dd", "####/##/##", '_');
 		components[5] = new DemoTable();
 
@@ -169,20 +136,10 @@ public class DateChooserPanel extends JPanel implements PropertyChangeListener {
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.awt.Component#isEnabled()
-	 */
 	public boolean isEnabled() {
 		return ((JDateChooser) components[0]).isEnabled();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see javax.swing.JComponent#setEnabled(boolean)
-	 */
 	public void setEnabled(boolean enabled) {
 		for (int i = 0; i < 5; i++) {
 			components[i].setEnabled(enabled);

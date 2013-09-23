@@ -1,23 +1,3 @@
-/*
- *  GenericBeanInfo.java  - Bean Info base for all  toedter.com beans
- *  Copyright (C) 2004 Kai Toedter
- *  kai@toedter.com
- *  www.toedter.com
- *
- *  This program is free software; you can redistribute it and/or
- *  modify it under the terms of the GNU Lesser General Public License
- *  as published by the Free Software Foundation; either version 2
- *  of the License, or (at your option) any later version.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU Lesser General Public License for more details.
- *
- *  You should have received a copy of the GNU Lesser General Public License
- *  along with this program; if not, write to the Free Software
- *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
- */
 package com.toedter.components;
 
 import java.awt.Image;
@@ -25,13 +5,6 @@ import java.beans.PropertyEditorManager;
 import java.beans.SimpleBeanInfo;
 import java.util.Locale;
 
-/**
- * A generic bean info class use by all bean infos of the JCalendar bean suite.
- * 
- * @author Kai Toedter
- * @version $LastChangedRevision: 85 $
- * @version $LastChangedDate: 2006-04-28 13:50:52 +0200 (Fr, 28 Apr 2006) $
- */
 public class GenericBeanInfo extends SimpleBeanInfo {
 	/** 16x16 color icon. */
 	protected Image iconColor16;
@@ -57,9 +30,9 @@ public class GenericBeanInfo extends SimpleBeanInfo {
 		} catch (RuntimeException e) {
 			System.out.println("GenericBeanInfo.GenericBeanInfo(): " + e);
 		}
-		
-		if(registerLocaleEditor) {
-			PropertyEditorManager.registerEditor(Locale.class,LocaleEditor.class);
+
+		if (registerLocaleEditor) {
+			PropertyEditorManager.registerEditor(Locale.class, LocaleEditor.class);
 		}
 	}
 
@@ -74,17 +47,17 @@ public class GenericBeanInfo extends SimpleBeanInfo {
 	 */
 	public Image getIcon(int iconKind) {
 		switch (iconKind) {
-			case ICON_COLOR_16x16 :
-				return iconColor16;
+		case ICON_COLOR_16x16:
+			return iconColor16;
 
-			case ICON_COLOR_32x32 :
-				return iconColor32;
+		case ICON_COLOR_32x32:
+			return iconColor32;
 
-			case ICON_MONO_16x16 :
-				return iconMono16;
+		case ICON_MONO_16x16:
+			return iconMono16;
 
-			case ICON_MONO_32x32 :
-				return iconMono32;
+		case ICON_MONO_32x32:
+			return iconMono32;
 		}
 
 		return null;

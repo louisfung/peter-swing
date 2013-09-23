@@ -1,24 +1,3 @@
-/*
- *  JLocaleChooser.java  - A bean for choosing locales
- *  Copyright (C) 2004 Kai Toedter
- *  kai@toedter.com
- *  www.toedter.com
- *
- *  This program is free software; you can redistribute it and/or
- *  modify it under the terms of the GNU Lesser General Public License
- *  as published by the Free Software Foundation; either version 2
- *  of the License, or (at your option) any later version.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU Lesser General Public License for more details.
- *
- *  You should have received a copy of the GNU Lesser General Public License
- *  along with this program; if not, write to the Free Software
- *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
- */
-
 package com.toedter.components;
 
 import java.awt.event.ItemEvent;
@@ -30,36 +9,18 @@ import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 
-/**
- * JLocaleChooser is a bean for choosing locales.
- * 
- * @author Kai Toedter
- * @version $LastChangedRevision: 85 $
- * @version $LastChangedDate: 2006-04-28 13:50:52 +0200 (Fr, 28 Apr 2006) $
- */
+@SuppressWarnings("serial")
 public class JLocaleChooser extends JComboBox implements ItemListener {
-	private static final long serialVersionUID = 8152430789764877431L;
 	protected JComponent component;
 
-	/**
-	 * Default JLocaleChooser constructor.
-	 */
 	public JLocaleChooser() {
-	    this(null);
+		this(null);
 	}
 
-    /**
-     * Returns "JLocaleChoose".
-     *
-     * @return the name value
-     */
-    public String getName() {
-        return "JLocaleChoose";
-    }
+	public String getName() {
+		return "JLocaleChoose";
+	}
 
-	/**
-	 * Default JLocaleChooser constructor.
-	 */
 	public JLocaleChooser(JComponent component) {
 		super();
 		this.component = component;
@@ -111,8 +72,8 @@ public class JLocaleChooser extends JComboBox implements ItemListener {
 		}
 
 		firePropertyChange("locale", oldLocale, locale);
-		if(component != null) {
-		    component.setLocale(l);
+		if (component != null) {
+			component.setLocale(l);
 		}
 	}
 
@@ -147,4 +108,3 @@ public class JLocaleChooser extends JComboBox implements ItemListener {
 	private Locale locale;
 	private int localeCount;
 }
-

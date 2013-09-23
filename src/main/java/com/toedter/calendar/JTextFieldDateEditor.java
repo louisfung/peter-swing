@@ -1,23 +1,3 @@
-/*
- *  Copyright (C) 2006 Kai Toedter
- *  kai@toedter.com
- *  www.toedter.com
- *
- *  This program is free software; you can redistribute it and/or
- *  modify it under the terms of the GNU Lesser General Public License
- *  as published by the Free Software Foundation; either version 2
- *  of the License, or (at your option) any later version.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU Lesser General Public License for more details.
- *
- *  You should have received a copy of the GNU Lesser General Public License
- *  along with this program; if not, write to the Free Software
- *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
- */
-
 package com.toedter.calendar;
 
 import java.awt.Color;
@@ -42,19 +22,7 @@ import javax.swing.event.CaretEvent;
 import javax.swing.event.CaretListener;
 import javax.swing.text.MaskFormatter;
 
-/**
- * JTextFieldDateEditor is the default editor used by JDateChooser. It is a
- * formatted text field, that colores valid dates green/black and invalid dates
- * red. The date format patten and mask can be set manually. If not set, the
- * MEDIUM pattern of a SimpleDateFormat with regards to the actual locale is
- * used.
- * 
- * @author Kai Toedter
- * @version $LastChangedRevision: 97 $
- * @version $LastChangedDate: 2006-05-24 17:30:41 +0200 (Mi, 24 Mai 2006) $
- */
-public class JTextFieldDateEditor extends JFormattedTextField implements IDateEditor,
-		CaretListener, FocusListener, ActionListener {
+public class JTextFieldDateEditor extends JFormattedTextField implements IDateEditor, CaretListener, FocusListener, ActionListener {
 
 	private static final long serialVersionUID = -8901842591101625304L;
 
@@ -96,8 +64,7 @@ public class JTextFieldDateEditor extends JFormattedTextField implements IDateEd
 		this(true, datePattern, maskPattern, placeholder);
 	}
 
-	public JTextFieldDateEditor(boolean showMask, String datePattern, String maskPattern,
-			char placeholder) {
+	public JTextFieldDateEditor(boolean showMask, String datePattern, String maskPattern, char placeholder) {
 		dateFormatter = (SimpleDateFormat) DateFormat.getDateInstance(DateFormat.MEDIUM);
 		dateFormatter.setLenient(false);
 

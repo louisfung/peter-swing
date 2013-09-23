@@ -1,24 +1,3 @@
-/*
- *  DemoTable.java  - A table to demo JDateChooser cell editors.
- *  Copyright (C) 2006 Kai Toedter
- *  kai@toedter.com
- *  www.toedter.com
- *
- *  This program is free software; you can redistribute it and/or
- *  modify it under the terms of the GNU Lesser General Public License
- *  as published by the Free Software Foundation; either version 2
- *  of the License, or (at your option) any later version.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU Lesser General Public License for more details.
- *
- *  You should have received a copy of the GNU Lesser General Public License
- *  along with this program; if not, write to the Free Software
- *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
- */
-
 package com.toedter.calendar.demo;
 
 import java.awt.Dimension;
@@ -32,13 +11,6 @@ import javax.swing.table.AbstractTableModel;
 
 import com.toedter.calendar.JDateChooserCellEditor;
 
-/**
- * A demonstration table with JDateChooserCellEditors.
- * 
- * @author Kai Toedter
- * @version $LastChangedRevision: 119 $
- * @version $LastChangedDate: 2009-05-04 17:47:56 +0200 (Mo, 04 Mai 2009) $
- */
 public class DemoTable extends JPanel {
 	private static final long serialVersionUID = -2823838920746867592L;
 
@@ -63,8 +35,7 @@ public class DemoTable extends JPanel {
 
 		private final String[] columnNames = { "Empty Date", "Date set" };
 
-		private final Object[][] data = { { null, new Date() },
-				{ null, new Date() } };
+		private final Object[][] data = { { null, new Date() }, { null, new Date() } };
 
 		public int getColumnCount() {
 			return columnNames.length;
@@ -82,26 +53,14 @@ public class DemoTable extends JPanel {
 			return data[row][col];
 		}
 
-		/*
-		 * JTable uses this method to determine the default renderer/ editor for
-		 * each cell. If we didn't implement this method, then the last column
-		 * would contain text ("true"/"false"), rather than a check box.
-		 */
 		public Class getColumnClass(int c) {
 			return getValueAt(0, 1).getClass();
 		}
 
-		/*
-		 * Don't need to implement this method unless your table's editable.
-		 */
 		public boolean isCellEditable(int row, int col) {
 			return true;
 		}
 
-		/*
-		 * Don't need to implement this method unless your table's data can
-		 * change.
-		 */
 		public void setValueAt(Object value, int row, int col) {
 			data[row][col] = value;
 			fireTableCellUpdated(row, col);

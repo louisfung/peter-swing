@@ -1,30 +1,8 @@
-/*
- *  JCalendarDemo.java - Demonstration of JCalendar Java Bean
- *  Copyright (C) 2004 Kai Toedter
- *  kai@toedter.com
- *  www.toedter.com
- *
- *  This program is free software; you can redistribute it and/or
- *  modify it under the terms of the GNU Lesser General Public License
- *  as published by the Free Software Foundation; either version 2
- *  of the License, or (at your option) any later version.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU Lesser General Public License for more details.
- *
- *  You should have received a copy of the GNU Lesser General Public License
- *  along with this program; if not, write to the Free Software
- *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
- */
-
 package com.toedter.calendar.demo;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
@@ -81,16 +59,8 @@ import com.toedter.components.JLocaleChooser;
 import com.toedter.components.JSpinField;
 import com.toedter.components.JTitlePanel;
 
-/**
- * A demonstration Applet for the JCalendar bean. The demo can also be started
- * as Java application.
- * 
- * @author Kai Toedter
- * @version $LastChangedRevision: 166 $
- * @version $LastChangedDate: 2011-06-26 21:58:35 +0200 (So, 26 Jun 2011) $
- */
+@SuppressWarnings("serial")
 public class JCalendarDemo extends JApplet implements PropertyChangeListener {
-	private static final long serialVersionUID = 6739986412544494316L;
 	private JSplitPane splitPane;
 	private JPanel calendarPanel;
 	private JComponent[] beans;

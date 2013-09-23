@@ -1,23 +1,3 @@
-/*
- *  JMonthChooser.java  - A bean for choosing a month
- *  Copyright (C) 2004 Kai Toedter
- *  kai@toedter.com
- *  www.toedter.com
- *
- *  This program is free software; you can redistribute it and/or
- *  modify it under the terms of the GNU Lesser General Public License
- *  as published by the Free Software Foundation; either version 2
- *  of the License, or (at your option) any later version.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU Lesser General Public License for more details.
- *
- *  You should have received a copy of the GNU Lesser General Public License
- *  along with this program; if not, write to the Free Software
- *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
- */
 package com.toedter.calendar;
 
 import java.awt.BorderLayout;
@@ -41,52 +21,22 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-/**
- * JMonthChooser is a bean for choosing a month.
- * 
- * @author Kai Toedter
- * @version $LastChangedRevision: 159 $
- * @version $LastChangedDate: 2011-06-22 21:07:24 +0200 (Mi, 22 Jun 2011) $
- */
-public class JMonthChooser extends JPanel implements ItemListener,
-		ChangeListener {
-	private static final long serialVersionUID = -2028361332231218527L;
-
-	/** true, if the month chooser has a spinner component */
+public class JMonthChooser extends JPanel implements ItemListener, ChangeListener {
 	protected boolean hasSpinner;
-
 	private Locale locale;
-
 	private int month;
-
 	private int oldSpinnerValue = 0;
-
-	// needed for comparison
 	private JDayChooser dayChooser;
-
 	private JYearChooser yearChooser;
-
 	private JComboBox comboBox;
-
 	private JSpinner spinner;
-
 	private boolean initialized;
-
 	private boolean localInitialize;
 
-	/**
-	 * Default JMonthChooser constructor.
-	 */
 	public JMonthChooser() {
 		this(true);
 	}
 
-	/**
-	 * JMonthChooser constructor with month spinner parameter.
-	 * 
-	 * @param hasSpinner
-	 *            true, if the month chooser should have a spinner component
-	 */
 	public JMonthChooser(boolean hasSpinner) {
 		super();
 		setName("JMonthChooser");
@@ -109,8 +59,7 @@ public class JMonthChooser extends JPanel implements ItemListener,
 
 				public Dimension getPreferredSize() {
 					Dimension size = super.getPreferredSize();
-					return new Dimension(size.width, textField
-							.getPreferredSize().height);
+					return new Dimension(size.width, textField.getPreferredSize().height);
 				}
 			};
 			spinner.addChangeListener(this);
@@ -148,15 +97,8 @@ public class JMonthChooser extends JPanel implements ItemListener,
 		comboBox.setSelectedIndex(month);
 	}
 
-	/**
-	 * Is invoked if the state of the spinner changes.
-	 * 
-	 * @param e
-	 *            the change event.
-	 */
 	public void stateChanged(ChangeEvent e) {
-		SpinnerNumberModel model = (SpinnerNumberModel) ((JSpinner) e
-				.getSource()).getModel();
+		SpinnerNumberModel model = (SpinnerNumberModel) ((JSpinner) e.getSource()).getModel();
 		int value = model.getNumber().intValue();
 		boolean increase = (value > oldSpinnerValue) ? true : false;
 		oldSpinnerValue = value;
@@ -192,12 +134,6 @@ public class JMonthChooser extends JPanel implements ItemListener,
 		setMonth(month);
 	}
 
-	/**
-	 * The ItemListener for the months.
-	 * 
-	 * @param e
-	 *            the item event
-	 */
 	public void itemStateChanged(ItemEvent e) {
 		if (e.getStateChange() == ItemEvent.SELECTED) {
 			int index = comboBox.getSelectedIndex();
@@ -208,15 +144,6 @@ public class JMonthChooser extends JPanel implements ItemListener,
 		}
 	}
 
-	/**
-	 * Sets the month attribute of the JMonthChooser object. Fires a property
-	 * change "month".
-	 * 
-	 * @param newMonth
-	 *            the new month value
-	 * @param select
-	 *            true, if the month should be selcted in the combo box.
-	 */
 	private void setMonth(int newMonth, boolean select) {
 		if (!initialized || localInitialize) {
 			return;
@@ -360,11 +287,12 @@ public class JMonthChooser extends JPanel implements ItemListener,
 		return hasSpinner;
 	}
 
-    /**
-     * Sets the font for this component.
-     *
-     * @param font the desired <code>Font</code> for this component
-     */
+	/**
+	 * Sets the font for this component.
+	 * 
+	 * @param font
+	 *            the desired <code>Font</code> for this component
+	 */
 	public void setFont(Font font) {
 		if (comboBox != null) {
 			comboBox.setFont(font);
