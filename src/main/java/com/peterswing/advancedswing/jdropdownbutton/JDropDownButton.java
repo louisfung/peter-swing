@@ -14,16 +14,6 @@ import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 import javax.swing.MenuElement;
 
-/**
- * This code was edited or generated using CloudGarden's Jigloo SWT/Swing GUI
- * Builder, which is free for non-commercial use. If Jigloo is being used
- * commercially (ie, by a corporation, company or business for any purpose
- * whatever) then you should purchase a license for each developer using Jigloo.
- * Please visit www.cloudgarden.com for details. Use of Jigloo implies
- * acceptance of these licensing terms. A COMMERCIAL LICENSE HAS NOT BEEN
- * PURCHASED FOR THIS MACHINE, SO JIGLOO OR THIS CODE CANNOT BE USED LEGALLY FOR
- * ANY CORPORATE OR COMMERCIAL PURPOSE.
- */
 public class JDropDownButton extends JButton implements ActionListener {
 	private JButton jDropDownButton;
 	private JPopupMenu jPopupMenu = new JPopupMenu();
@@ -111,19 +101,17 @@ public class JDropDownButton extends JButton implements ActionListener {
 		try {
 			BorderLayout thisLayout = new BorderLayout();
 			this.setLayout(thisLayout);
-			{
-				jDropDownButton = new JButton();
-				jDropDownButton.setBorder(null);
-				this.add(jDropDownButton, BorderLayout.EAST);
-				this.add(new JLabel(getText() + "        "), BorderLayout.CENTER);
-				jDropDownButton.setIcon(new ImageIcon(getClass().getClassLoader().getResource("com/peterswing/advancedswing/jdropdownbutton/add.png")));
-				jDropDownButton.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent evt) {
-						jDropDownButtonActionPerformed(evt);
-					}
-				});
-				jDropDownButton.setPreferredSize(new Dimension(18, 0));
-			}
+			jDropDownButton = new JButton();
+			jDropDownButton.setBorder(null);
+			this.add(jDropDownButton, BorderLayout.EAST);
+			this.add(new JLabel(getText() + "        "), BorderLayout.CENTER);
+			jDropDownButton.setIcon(new ImageIcon(getClass().getClassLoader().getResource("com/peterswing/advancedswing/jdropdownbutton/add.png")));
+			jDropDownButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent evt) {
+					jDropDownButtonActionPerformed(evt);
+				}
+			});
+			jDropDownButton.setPreferredSize(new Dimension(18, 0));
 			// this.setMargin(new Insets(0, 0, 0, 0));
 			this.addActionListener(this);
 		} catch (Exception e) {

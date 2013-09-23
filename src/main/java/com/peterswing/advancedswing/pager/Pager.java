@@ -1,4 +1,5 @@
 package com.peterswing.advancedswing.pager;
+
 import java.awt.FlowLayout;
 
 import java.awt.event.ActionEvent;
@@ -11,12 +12,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.event.EventListenerList;
 
-/**
- * This code was edited or generated using CloudGarden's Jigloo SWT/Swing GUI Builder, which is free for non-commercial use. If Jigloo is being used commercially (ie, by a
- * corporation, company or business for any purpose whatever) then you should purchase a license for each developer using Jigloo. Please visit www.cloudgarden.com for details. Use
- * of Jigloo implies acceptance of these licensing terms. A COMMERCIAL LICENSE HAS NOT BEEN PURCHASED FOR THIS MACHINE, SO JIGLOO OR THIS CODE CANNOT BE USED LEGALLY FOR ANY
- * CORPORATE OR COMMERCIAL PURPOSE.
- */
 public class Pager extends JPanel {
 	private JButton jFirstPageButton;
 	private JButton jNextPageButton;
@@ -28,67 +23,57 @@ public class Pager extends JPanel {
 	public int maxPageNo = 1;
 
 	public Pager() {
-		initGUI();
-	}
-
-	private void initGUI() {
+		super();
 		try {
-			{
-				FlowLayout thisLayout = new FlowLayout();
-				thisLayout.setAlignment(FlowLayout.LEFT);
-				this.setLayout(thisLayout);
-				this.setOpaque(false);
-			}
-			{
-				jFirstPageButton = new JButton();
-				this.add(jFirstPageButton);
-				jFirstPageButton.setText("|<");
-				jFirstPageButton.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent evt) {
-						jFirstPageButtonActionPerformed(evt);
-					}
-				});
-			}
-			{
-				jPreviousPageButton = new JButton();
-				this.add(jPreviousPageButton);
-				jPreviousPageButton.setText("<");
-				jPreviousPageButton.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent evt) {
-						jPreviousPageButtonActionPerformed(evt);
-					}
-				});
-			}
-			{
-				jPageNoTextField = new JTextField("1");
-				this.add(jPageNoTextField);
-				jPageNoTextField.setPreferredSize(new java.awt.Dimension(65, 22));
-				jPageNoTextField.addKeyListener(new KeyAdapter() {
-					public void keyReleased(KeyEvent evt) {
-						jPageNoTextFieldKeyReleased(evt);
-					}
-				});
-			}
-			{
-				jNextPageButton = new JButton();
-				this.add(jNextPageButton);
-				jNextPageButton.setText(">");
-				jNextPageButton.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent evt) {
-						jNextPageButtonActionPerformed(evt);
-					}
-				});
-			}
-			{
-				jLastPageButton = new JButton();
-				this.add(jLastPageButton);
-				jLastPageButton.setText(">|");
-				jLastPageButton.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent evt) {
-						jLastPageButtonActionPerformed(evt);
-					}
-				});
-			}
+			FlowLayout thisLayout = new FlowLayout();
+			thisLayout.setAlignment(FlowLayout.LEFT);
+			this.setLayout(thisLayout);
+			this.setOpaque(false);
+
+			jFirstPageButton = new JButton();
+			this.add(jFirstPageButton);
+			jFirstPageButton.setText("|<");
+			jFirstPageButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent evt) {
+					jFirstPageButtonActionPerformed(evt);
+				}
+			});
+
+			jPreviousPageButton = new JButton();
+			this.add(jPreviousPageButton);
+			jPreviousPageButton.setText("<");
+			jPreviousPageButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent evt) {
+					jPreviousPageButtonActionPerformed(evt);
+				}
+			});
+
+			jPageNoTextField = new JTextField("1");
+			this.add(jPageNoTextField);
+			jPageNoTextField.setPreferredSize(new java.awt.Dimension(65, 22));
+			jPageNoTextField.addKeyListener(new KeyAdapter() {
+				public void keyReleased(KeyEvent evt) {
+					jPageNoTextFieldKeyReleased(evt);
+				}
+			});
+
+			jNextPageButton = new JButton();
+			this.add(jNextPageButton);
+			jNextPageButton.setText(">");
+			jNextPageButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent evt) {
+					jNextPageButtonActionPerformed(evt);
+				}
+			});
+
+			jLastPageButton = new JButton();
+			this.add(jLastPageButton);
+			jLastPageButton.setText(">|");
+			jLastPageButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent evt) {
+					jLastPageButtonActionPerformed(evt);
+				}
+			});
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

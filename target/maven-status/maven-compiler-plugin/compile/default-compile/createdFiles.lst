@@ -29,6 +29,7 @@ com/peterswing/white/FileChooserUI$FilterComboBoxModel.class
 com/toedter/calendar/JSpinnerDateEditor.class
 com/peterswing/Global.class
 com/peterswing/white/MyBasicFileChooserUI$GoHomeAction.class
+com/peterswing/advancedswing/jprogressbardialog/JProgressBarDialog$4.class
 com/toedter/components/GenericBeanInfo.class
 com/peterswing/white/ProgressBarUI$1.class
 com/peterswing/white/FileChooserUI$DirectoryComboBoxRenderer.class
@@ -178,6 +179,7 @@ com/toedter/calendar/demo/DateChooserPanelBeanInfo.class
 com/toedter/components/UTF8ResourceBundle.class
 com/peterswing/advancedswing/enhancedtextarea/LogFileTailerListener.class
 com/toedter/calendar/demo/TestDateEvaluator.class
+com/peterswing/advancedswing/downloadfiledialog/DownloadFileDialog$1.class
 com/peterswing/white/MyBasicFileChooserUI$FileTransferHandler$FileTransferable.class
 com/peterswing/white/PeterSpinnerUI.class
 com/toedter/calendar/demo/DemoTable$DemoTableModel.class
@@ -241,6 +243,7 @@ com/peterswing/advancedswing/enhancedtextarea/LogFileTailer.class
 com/peterswing/ComboBoxEditorExample$ImagePanel.class
 com/peterswing/white/ComboBoxUI.class
 com/peterswing/white/TextFieldUI.class
+com/peterswing/advancedswing/downloadfiledialog/DownloadFileDialog.class
 com/peterswing/white/FileChooserUI$12.class
 com/peterswing/NewJFrame$2.class
 com/peterswing/JMainFrame$7.class
@@ -269,6 +272,7 @@ com/peterswing/DemoApplet.class
 com/toedter/calendar/demo/JCalendarDemo$4.class
 com/peterswing/JMainFrame$15.class
 com/peterswing/advancedswing/enhancedtextarea/EnhancedTextArea$5.class
+com/peterswing/GenericTableModel.class
 com/toedter/calendar/JCalendar$1.class
 com/toedter/calendar/demo/JCalendarDemo$9.class
 com/peterswing/white/FileChooserUI$11.class

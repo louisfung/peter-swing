@@ -126,7 +126,7 @@ public class JMaximizableTabbedPane extends JTabbedPane implements MouseListener
 			tooltip = "tab" + component.hashCode();
 			maps.put(tooltip, component);
 		} catch (Exception ex) {
-			// without this try-catch, jigloo cannot display the correct UI
+
 		}
 		super.insertTab(title, icon, component, tooltip, index);
 	}
