@@ -915,6 +915,9 @@ public class CommonLib {
 	}
 
 	public static byte[] intArrayToByteArray(int[] b) {
+		if (b == null) {
+			return null;
+		}
 		byte i[] = new byte[b.length];
 		for (int x = 0; x < i.length; x++) {
 			i[x] = (byte) b[x];
