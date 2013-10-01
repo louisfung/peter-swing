@@ -58,7 +58,7 @@ public class PeterSwingWhiteLookAndFeel extends BasicLookAndFeel {
 					"unselect"/*DefaultEditorKit.unselectAction*/, "control shift O", "toggle-componentOrientation"/*DefaultEditorKit.toggleComponentOrientation*/
 			});
 
-			Object passwordInputMap = new UIDefaults.LazyInputMap(new Object[] { "meta C", DefaultEditorKit.copyAction, "meta V", DefaultEditorKit.pasteAction, "meta X",
+			passwordInputMap = new UIDefaults.LazyInputMap(new Object[] { "meta C", DefaultEditorKit.copyAction, "meta V", DefaultEditorKit.pasteAction, "meta X",
 					DefaultEditorKit.cutAction, "COPY", DefaultEditorKit.copyAction, "PASTE", DefaultEditorKit.pasteAction, "CUT", DefaultEditorKit.cutAction, "control INSERT",
 					DefaultEditorKit.copyAction, "shift INSERT", DefaultEditorKit.pasteAction, "shift DELETE", DefaultEditorKit.cutAction, "shift LEFT",
 					DefaultEditorKit.selectionBackwardAction, "shift KP_LEFT", DefaultEditorKit.selectionBackwardAction, "shift RIGHT", DefaultEditorKit.selectionForwardAction,
@@ -73,7 +73,7 @@ public class PeterSwingWhiteLookAndFeel extends BasicLookAndFeel {
 					"unselect"/*DefaultEditorKit.unselectAction*/, "control shift O", "toggle-componentOrientation"/*DefaultEditorKit.toggleComponentOrientation*/
 			});
 
-			Object multilineInputMap = new UIDefaults.LazyInputMap(new Object[] { "meta C", DefaultEditorKit.copyAction, "meta V", DefaultEditorKit.pasteAction, "meta X",
+			multilineInputMap = new UIDefaults.LazyInputMap(new Object[] { "meta C", DefaultEditorKit.copyAction, "meta V", DefaultEditorKit.pasteAction, "meta X",
 					DefaultEditorKit.cutAction, "COPY", DefaultEditorKit.copyAction, "PASTE", DefaultEditorKit.pasteAction, "CUT", DefaultEditorKit.cutAction, "control INSERT",
 					DefaultEditorKit.copyAction, "shift INSERT", DefaultEditorKit.pasteAction, "shift DELETE", DefaultEditorKit.cutAction, "shift LEFT",
 					DefaultEditorKit.selectionBackwardAction, "shift KP_LEFT", DefaultEditorKit.selectionBackwardAction, "shift RIGHT", DefaultEditorKit.selectionForwardAction,
