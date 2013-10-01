@@ -278,6 +278,8 @@ public class JMainFrame extends JFrame {
 	JLabel JLabel1 = new JLabel();
 	JLabel JLabel2 = new JLabel();
 	JLabel JLabel3 = new JLabel();
+	private JPanel panel_1;
+	private JEditorPane dtrpnThisIsJeditorpane;
 
 	public static void main(String args[]) {
 		System.out.println(Global.version);
@@ -593,8 +595,8 @@ public class JMainFrame extends JFrame {
 		jToolBar3.add(jDropDownButton2);
 		jDropDownButton2.setText("jDropDownButton 2");
 		jDropDownButton2.setPreferredSize(new java.awt.Dimension(349, 35));
-		jDropDownButton2.add(jMenuItem1);
-		jDropDownButton2.add(jMenuItem2);
+		jDropDownButton2.add(new JMenuItem("JMenuItem 1"));
+		jDropDownButton2.add(new JMenuItem("JMenuItem 2"));
 		jDropDownButton2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				jDropDownButton2ActionPerformed(evt);
@@ -1178,8 +1180,7 @@ public class JMainFrame extends JFrame {
 				jButton23ActionPerformed(evt);
 			}
 		});
-
-		JScrollPane5.getViewport().add(JTextArea2);
+		JScrollPane5.setViewportView(JTextArea2);
 		jTabbedPane1.add(JScrollBarPanel, "JScrollBar");
 		JScrollBarPanel.add(JScrollBar3);
 		JScrollBar3.setBounds(192, 281, 302, 25);
@@ -1196,7 +1197,6 @@ public class JMainFrame extends JFrame {
 		JRadioButton1.setText("JRadioButton1");
 		JRadioButton1.setBounds(-15, 4, 100, 22);
 
-		JToolBar2.add(JToggleButton1);
 		JToolBar2.add(JButton3);
 
 		JCheckBox1 = new JCheckBox();
@@ -1242,7 +1242,7 @@ public class JMainFrame extends JFrame {
 		jRadioButton1.setText("jRadioButton1");
 
 		pIntroductionPanel.add(JScrollPane1, java.awt.BorderLayout.CENTER);
-		JScrollPane1.getViewport().add(pIntroductionTextArea);
+		JScrollPane1.setViewportView(pIntroductionTextArea);
 		jTabbedPane1.add(pAboutPanel, "About");
 		pAboutPanel.add(pVersionLabel, java.awt.BorderLayout.CENTER);
 		JTextAreaPanel.add(JTextArea1);
@@ -1289,6 +1289,14 @@ public class JMainFrame extends JFrame {
 				.addContainerGap());
 		pVersionLabel.setFont(new java.awt.Font("Dialog", Font.PLAIN, 48));
 		pVersionLabel.setText("version : " + Global.version);
+		
+		panel_1 = new JPanel();
+		jTabbedPane1.addTab("JEditorPane", null, panel_1, null);
+		panel_1.setLayout(new BorderLayout(0, 0));
+		
+		dtrpnThisIsJeditorpane = new JEditorPane();
+		dtrpnThisIsJeditorpane.setText("This is JEditorPane");
+		panel_1.add(dtrpnThisIsJeditorpane, BorderLayout.CENTER);
 		pack();
 		this.setSize(700, 500);
 		this.setLocationRelativeTo(null);
