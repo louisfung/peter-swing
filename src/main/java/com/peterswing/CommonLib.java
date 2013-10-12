@@ -977,4 +977,18 @@ public class CommonLib {
 			return false;
 		}
 	}
+
+	public static String arrayToHexString(int arr[]) {
+		if (arr == null || arr.length == 0) {
+			return null;
+		}
+		String r = "";
+		for (int x = 0; x < arr.length; x++) {
+			if (!r.equals("")) {
+				r += " ";
+			}
+			r += "0x" + Integer.toHexString(arr[x]);
+		}
+		return r;
+	}
 }
