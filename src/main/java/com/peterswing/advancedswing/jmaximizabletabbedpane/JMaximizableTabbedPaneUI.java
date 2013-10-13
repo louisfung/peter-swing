@@ -38,8 +38,9 @@ public class JMaximizableTabbedPaneUI extends TabbedPaneUI {
 
 	protected void paintIcon(Graphics g, int tabPlacement, int tabIndex, Icon icon, Rectangle iconRect, boolean isSelected) {
 		super.paintIcon(g, tabPlacement, tabIndex, icon, iconRect, isSelected);
-
+		System.out.println("111");
 		if (jMaximizableTabbedPane.getClosableTabIndex().contains(tabIndex)) {
+			System.out.println("222");
 			closeIcon.paintIcon(tabPane, g, tabX + tabWidth - 18, this.tabY + ((tabHeight - closeIcon.getIconHeight()) / 2));
 		}
 	}

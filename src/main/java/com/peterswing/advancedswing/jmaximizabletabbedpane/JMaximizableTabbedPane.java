@@ -37,6 +37,7 @@ import javax.swing.JToolBar;
 import javax.swing.JToolTip;
 import javax.swing.SwingUtilities;
 import javax.swing.border.Border;
+import javax.swing.plaf.TabbedPaneUI;
 import javax.swing.plaf.basic.BasicTabbedPaneUI;
 
 public class JMaximizableTabbedPane extends JTabbedPane implements MouseListener, MouseMotionListener {
@@ -73,8 +74,11 @@ public class JMaximizableTabbedPane extends JTabbedPane implements MouseListener
 		init(false);
 	}
 
+	public void setUI(TabbedPaneUI ui) {
+		super.setUI(new JMaximizableTabbedPaneUI());
+	}
+
 	private void init(boolean isMaximized) {
-		setUI(new JMaximizableTabbedPaneUI());
 		this.isMaximized = isMaximized;
 		addMouseListener(this);
 		addMouseMotionListener(this);
