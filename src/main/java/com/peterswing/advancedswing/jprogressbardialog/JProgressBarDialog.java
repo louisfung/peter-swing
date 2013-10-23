@@ -186,11 +186,12 @@ public class JProgressBarDialog extends javax.swing.JDialog {
 	}
 
 	private void finished() {
-		SwingUtilities.invokeLater(new Thread() {
-			public void run() {
-				JProgressBarDialog.this.setVisible(false);
-			}
-		});
+		//		SwingUtilities.invokeLater(new Thread() {
+		//			public void run() {
+		//JProgressBarDialog.this.setVisible(false);
+		JProgressBarDialog.this.dispose();
+		//			}
+		//		});
 	}
 
 	private void jCancelButtonActionPerformed(ActionEvent evt) {
