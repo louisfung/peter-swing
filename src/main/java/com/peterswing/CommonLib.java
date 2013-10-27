@@ -87,32 +87,42 @@ public class CommonLib {
 	}
 
 	public static BigInteger string2BigInteger(String s) {
-		if (s == null) {
-			return BigInteger.valueOf(0);
-		} else {
-			s = s.trim().toLowerCase();
-			if (s.startsWith("0x")) {
-				return new BigInteger(s.substring(2), 16);
-			} else if (s.matches(".*[abcdef].*")) {
-				return new BigInteger(s, 16);
+		try {
+			if (s == null) {
+				return BigInteger.valueOf(0);
 			} else {
-				return new BigInteger(s, 10);
+				s = s.trim().toLowerCase();
+				if (s.startsWith("0x")) {
+					return new BigInteger(s.substring(2), 16);
+				} else if (s.matches(".*[abcdef].*")) {
+					return new BigInteger(s, 16);
+				} else {
+					return new BigInteger(s, 10);
+				}
 			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			return BigInteger.valueOf(-1);
 		}
 	}
 
 	public static int string2int(String s) {
-		if (s == null) {
-			return 0;
-		} else {
-			s = s.trim().toLowerCase();
-			if (s.startsWith("0x")) {
-				return Integer.parseInt(s.substring(2), 16);
-			} else if (s.matches(".*[abcdef].*")) {
-				return Integer.parseInt(s, 16);
+		try {
+			if (s == null) {
+				return 0;
 			} else {
-				return Integer.parseInt(s, 10);
+				s = s.trim().toLowerCase();
+				if (s.startsWith("0x")) {
+					return Integer.parseInt(s.substring(2), 16);
+				} else if (s.matches(".*[abcdef].*")) {
+					return Integer.parseInt(s, 16);
+				} else {
+					return Integer.parseInt(s, 10);
+				}
 			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			return -1;
 		}
 	}
 
