@@ -104,4 +104,5 @@ public class SortableTableModel extends DefaultTableModel {
 		}
 		return -1;
 	}
+
 }
