@@ -11,6 +11,8 @@ public class GenericTableModel extends DefaultTableModel {
 	public HashMap<Integer, Boolean> editables = new HashMap<Integer, Boolean>();
 	public HashMap<Integer, Class> columnTypes = new HashMap<Integer, Class>();
 
+	public String searchPattern = "";
+
 	public GenericTableModel() {
 	}
 
@@ -29,7 +31,18 @@ public class GenericTableModel extends DefaultTableModel {
 		if (values == null || values.size() == 0) {
 			return 0;
 		}
-		return values.get(0).size();
+		if (searchPattern.trim().equals("")) {
+			return values.get(0).size();
+		} else {
+			int count = 0;
+			Vector<Object> col0 = values.get(0);
+			for (Object v : col0) {
+				if (v.toString().contains(searchPattern.trim())) {
+					count++;
+				}
+			}
+			return count;
+		}
 	}
 
 	public void setValueAt(Object aValue, int row, int column) {
@@ -37,7 +50,23 @@ public class GenericTableModel extends DefaultTableModel {
 	}
 
 	public Object getValueAt(final int row, int column) {
-		return values.get(column).get(row);
+		if (searchPattern.trim().equals("")) {
+			return values.get(column).get(row);
+		} else {
+			int count = 0;
+			int r = 0;
+			Vector<Object> col0 = values.get(0);
+			for (Object v : col0) {
+				if (v.toString().contains(searchPattern.trim())) {
+					if (count == row) {
+						break;
+					}
+					count++;
+				}
+				r++;
+			}
+			return values.get(column).get(r);
+		}
 	}
 
 	public boolean isCellEditable(int row, int column) {
