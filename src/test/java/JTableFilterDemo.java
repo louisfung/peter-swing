@@ -11,6 +11,7 @@ public class JTableFilterDemo {
 	public static void main(String[] args) {
 		try {
 			UIManager.setLookAndFeel("com.peterswing.white.PeterSwingWhiteLookAndFeel");
+//			UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
