@@ -198,7 +198,7 @@ public class PeterSwingWhiteLookAndFeel extends BasicLookAndFeel {
 
 	protected void initClassDefaults(UIDefaults table) {
 		uiDefaults = table;
-//		super.initClassDefaults(table);
+		super.initClassDefaults(table);
 
 		table.putDefaults(new Object[] { "PanelUI", "com.peterswing.white.PanelUI", "ButtonUI", "com.peterswing.white.ButtonUI", "ToggleButtonUI",
 				"com.peterswing.white.ToggleButtonUI", "TabbedPaneUI", "com.peterswing.white.TabbedPaneUI", "ScrollPaneUI", "com.peterswing.white.ScrollPaneUI", "ScrollBarUI",
@@ -208,9 +208,7 @@ public class PeterSwingWhiteLookAndFeel extends BasicLookAndFeel {
 				"FileChooserUI", "com.peterswing.white.FileChooserUI", "TableUI", "com.peterswing.white.TableUI", "TableHeaderUI", "com.peterswing.white.TableHeaderUI",
 				"ProgressBarUI", "com.peterswing.white.ProgressBarUI", "SliderUI", "com.peterswing.white.SliderUI", "SplitPaneUI", "com.peterswing.white.SplitPaneUI", "MenuBarUI",
 				"com.peterswing.white.MenuBarUI", "MenuUI", "com.peterswing.white.MenuUI", "ViewportUI", "com.peterswing.white.ViewPortUI", "TreeUI",
-				"com.peterswing.white.TreeUI", "SpinnerUI", "com.peterswing.white.PeterSpinnerUI", "ToolTipUI", "com.peterswing.white.PeterToolTipUI" ,"RootPaneUI","javax.swing.plaf.basic.BasicRootPaneUI"});
-		
-//		table.putDefaults(new Object[] {   "SliderUI", "com.peterswing.white.SliderUI"});
+				"com.peterswing.white.TreeUI", "SpinnerUI", "com.peterswing.white.PeterSpinnerUI", "ToolTipUI", "com.peterswing.white.PeterToolTipUI" });
 	}
 
 	protected void initComponentDefaults(UIDefaults table) {
@@ -325,7 +323,7 @@ public class PeterSwingWhiteLookAndFeel extends BasicLookAndFeel {
 		table.put("ProgressBar.cellSpacing", new Integer(0));
 		table.put("ProgressBar.cellLength", new Integer(1));
 
-//		table.put("OptionPane.background", Color.white);
+		//		table.put("OptionPane.background", Color.white);
 		table.put("OptionPane.errorIcon", new ImageIcon(this.getClass().getResource("images/JOptionPane/error.png")));
 		table.put("OptionPane.informationIcon", new ImageIcon(this.getClass().getResource("images/JOptionPane/information.png")));
 		table.put("OptionPane.warningIcon", new ImageIcon(this.getClass().getResource("images/JOptionPane/warning.png")));
