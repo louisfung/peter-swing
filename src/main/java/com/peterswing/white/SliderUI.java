@@ -7,6 +7,7 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JSlider;
+import javax.swing.LookAndFeel;
 import javax.swing.UIManager;
 import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicSliderUI;
@@ -29,7 +30,8 @@ public class SliderUI extends BasicSliderUI {
 
 	public void installUI(JComponent c) {
 		super.installUI(c);
-		c.setBackground(Color.white);
+
+		LookAndFeel.installProperty(slider, "opaque", Boolean.FALSE);
 		trackWidth = ((Integer) UIManager.get("Slider.trackWidth")).intValue();
 		tickLength = ((Integer) UIManager.get("Slider.majorTickLength")).intValue();
 	}

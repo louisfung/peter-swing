@@ -12,6 +12,9 @@ import javax.swing.UIManager;
 import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
+import javax.swing.JSlider;
+import javax.swing.SwingConstants;
+import java.awt.Color;
 
 public class NewJFrame extends javax.swing.JFrame {
 	private JScrollPane jScrollPane1;
@@ -36,12 +39,13 @@ public class NewJFrame extends javax.swing.JFrame {
 
 	public NewJFrame() {
 		super();
+		getContentPane().setBackground(Color.DARK_GRAY);
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		getContentPane().setLayout(null);
 		{
 			jScrollPane1 = new JScrollPane();
 			getContentPane().add(jScrollPane1);
-			jScrollPane1.setBounds(23, 63, 540, 264);
+			jScrollPane1.setBounds(23, 63, 390, 244);
 			{
 				TableModel jTable1Model = new DefaultTableModel(new String[][] { { "One", "Two" }, { "Three", "Four" }, { "Three", "Four" }, { "Three", "Four" },
 						{ "Three", "Four" }, { "Three", "Four" }, { "Three", "Four" }, { "Three", "Four" }, { "Three", "Four" }, { "Three", "Four" }, { "Three", "Four" },
@@ -70,11 +74,18 @@ public class NewJFrame extends javax.swing.JFrame {
 			jProgressBar1.setBounds(23, 16, 148, 14);
 			//				jProgressBar1.setStringPainted(true);
 		}
-		pack();
-		this.setSize(576, 399);
+		
+		JSlider slider = new JSlider();
+		slider.setBounds(281, 346, 200, 24);
+		getContentPane().add(slider);
+		
+		JSlider slider_1 = new JSlider();
+		slider_1.setOrientation(SwingConstants.VERTICAL);
+		slider_1.setBounds(482, 28, 24, 310);
+		getContentPane().add(slider_1);
+		this.setSize(607, 533);
 	}
 
 	private void jButton1ActionPerformed(ActionEvent evt) {
 	}
-
 }
