@@ -39,7 +39,6 @@ public class NewJFrame extends javax.swing.JFrame {
 
 	public NewJFrame() {
 		super();
-		getContentPane().setBackground(Color.DARK_GRAY);
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		getContentPane().setLayout(null);
 		{
@@ -74,11 +73,14 @@ public class NewJFrame extends javax.swing.JFrame {
 			jProgressBar1.setBounds(23, 16, 148, 14);
 			//				jProgressBar1.setStringPainted(true);
 		}
-		
+
 		JSlider slider = new JSlider();
-		slider.setBounds(281, 346, 200, 24);
+		slider.setBounds(281, 346, 200, 54);
+		slider.setPaintLabels(true);
+		slider.setMajorTickSpacing(20);
+		slider.setPaintLabels(true);
 		getContentPane().add(slider);
-		
+
 		JSlider slider_1 = new JSlider();
 		slider_1.setOrientation(SwingConstants.VERTICAL);
 		slider_1.setBounds(482, 28, 24, 310);

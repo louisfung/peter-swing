@@ -323,7 +323,7 @@ public class PeterSwingWhiteLookAndFeel extends BasicLookAndFeel {
 		table.put("ProgressBar.cellSpacing", new Integer(0));
 		table.put("ProgressBar.cellLength", new Integer(1));
 
-		//		table.put("OptionPane.background", Color.white);
+		table.put("OptionPane.background", Color.white);
 		table.put("OptionPane.errorIcon", new ImageIcon(this.getClass().getResource("images/JOptionPane/error.png")));
 		table.put("OptionPane.informationIcon", new ImageIcon(this.getClass().getResource("images/JOptionPane/information.png")));
 		table.put("OptionPane.warningIcon", new ImageIcon(this.getClass().getResource("images/JOptionPane/warning.png")));
